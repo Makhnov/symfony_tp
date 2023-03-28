@@ -1,20 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    {% block header %}
+    {{ parent() }}
+    {% endblock %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% block inner %}
+        <div class="background"></div>
+        <div id="inner" class="container-fluid d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex flex-column">
+                    <h1 class="text-center">Bienvenue sur notre site !</h1>
+                    <h3 class="text-center">Souhaitez-vous découvrir nos articles ?</h3>
+                    <a href="{{url('twig_articles')}}" class="btn btn-primary w-25 mx-auto my-3">Cliquez ici !</a>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    {% endblock %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/symfony_tp/src/Controller/AccueilController.php'|file_link(0) }}">src/Controller/AccueilController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/symfony_tp/templates/accueil/index.html.twig'|file_link(0) }}">templates/accueil/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% block footer %}
+    {{ parent() }}
+    {% endblock %}
 {% endblock %}

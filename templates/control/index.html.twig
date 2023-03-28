@@ -1,0 +1,36 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticlesController!{% endblock %}
+
+{% block body %}
+    {% block header %}
+    {{ parent() }}
+
+    {% endblock %}
+
+    {% block inner %}
+        <div id="inner" class="container-fluid d-flex flex-column justify-content-center">
+            <div class="row w-75 mx-auto">
+                <a href="{{url('set_article1')}}" class="btn btn-success w-25 mx-auto my-3">ajouter l'article de catégorie 1</a>
+                <a href="{{url('set_article2')}}" class="btn btn-success w-25 mx-auto my-3">ajouter l'article de catégorie 2</a>
+            </div>
+            <div class="row w-75 mx-auto d-flex">
+                <a href="{{url('del_article1')}}" class="btn btn-success w-25 mx-auto my-3">Supprimer le dernier article de catégorie 1</a>
+                <a href="{{url('del_article2')}}" class="btn btn-success w-25 mx-auto my-3">Supprimer le dernier article de catégorie 2</a>
+            </div>
+            <div class="row w-75 mx-auto">
+                <a href="{{url('set_category')}}" class="btn btn-success mx-auto my-2">Créer une Catégorie</a>
+                <a href="{{url('set_post')}}" class="btn btn-success mx-auto my-2">Créer un Post</a>
+                <a href="{{url('get_id1')}}" class="btn btn-success mx-auto my-2">Afficher posts et catégories id1</a>
+                <a href="{{url('update_title')}}" class="btn btn-success mx-auto my-2">Change title</a>
+                <a href="{{url('get_post')}}" class="btn btn-success mx-auto my-2">Afficher posts</a>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+    {{ parent() }}
+
+    {% endblock %}
+{% endblock %}

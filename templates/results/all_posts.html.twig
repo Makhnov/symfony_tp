@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les posts{% endblock %}
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block inner %}
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Catégorie 1</h2>
+                {% if postsCategory1 is empty %}
+                    <p>Aucun post trouvé dans la catégorie 1.</p>
+                {% else %}
+                    <ul>
+                        {% for post in postsCategory1 %}
+                            <li>
+                                <h4>ID: {{ post.id }}</h4>
+                                <p>Date: {{ post.date|date('Y-m-d H:i:s') }}</p>
+                                <p>Titre: {{ post.titre }}</p>
+                                <p>Message: {{ post.message }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="col-md-6">
+                <h2>Catégorie 2</h2>
+                {% if postsCategory2 is empty %}
+                    <p>Aucun post trouvé dans la catégorie 2.</p>
+                {% else %}
+                    <ul>
+                        {% for post in postsCategory2 %}
+                            <li>
+                                <h4>ID: {{ post.id }}</h4>
+                                <p>Date: {{ post.date|date('Y-m-d H:i:s') }}</p>
+                                <p>Titre: {{ post.titre }}</p>
+                                <p>Message: {{ post.message }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
+

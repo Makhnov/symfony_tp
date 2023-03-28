@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ID : {{dataPost.id}} {% endblock %}
+
+{% block body %}
+    {% block header %}
+    {{ parent() }}
+    {% endblock %}
+
+    {% block inner %}
+    <div class="my-3 resultat">
+        <p>Post en ID : <span>{{dataPost.id}}</span></p>        
+        <p>Titre : <span>{{dataPost.titre}}</span></p>
+        <p>Message : <span>{{dataPost.message}}</span></p>
+    </div>
+
+    <div class="my-3 resultat">
+        <p>Catégorie en ID : <span>{{dataCategory.id}}</span></p>
+        <p>Titre : <span>{{dataCategory.title}}</span></p>
+    </div>
+    {% endblock %}
+
+    {% block footer %}
+    {{ parent() }}
+    {% endblock %}
+{% endblock %}

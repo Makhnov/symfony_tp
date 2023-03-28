@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les articles{% endblock %}
+
+{% block body %}
+    {% block header %}
+    {{ parent() }}
+
+    {% endblock %}
+
+    {% block inner %}
+        <div id="inner" class="container-fluid">
+            <div class="row justify-content-center">
+                {% for article in articles %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ article.titre }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ article.date|date('Y-m-d') }}</h6>
+                                <p class="card-text">{{ article.message }}</p>
+                                <p class="card-author">{{ article.auteur }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if loop.index % 4 == 0 %}
+                        <div class="w-100 d-none d-lg-block"></div>
+                    {% endif %}
+                    {% if loop.index % 3 == 0 %}
+                        <div class="w-100 d-none d-md-block d-lg-none"></div>
+                    {% endif %}
+                    {% if loop.index % 2 == 0 %}
+                        <div class="w-100 d-none d-sm-block d-md-none"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+    {{ parent() }}
+
+    {% endblock %}
+{% endblock %}
